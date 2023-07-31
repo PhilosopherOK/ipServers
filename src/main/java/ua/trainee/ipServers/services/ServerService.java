@@ -29,11 +29,11 @@ public class ServerService {
         return serverRepository.findById(id).orElse(null);
     }
 
-    public List<Server> findByName(String startingWith) {
+    public List<Server> findByNameStartingWith(String startingWith) {
         return serverRepository.findByNameStartingWith(startingWith);
     }
 
-    public void addIp(long ServiceId, String ipName) {
+    public void addIp(long ServerId, String ipName) {
         List<IpS> IpList = ipSRepository.findAll();
         for(IpS ip:IpList){
             if(ip.getName().equals(ipName)){
@@ -41,7 +41,7 @@ public class ServerService {
                 ipSRepository.deleteById(ip.getId());
             }
         }
-        IpS ipS = new IpS(ipName, findById(ServiceId));
+        IpS ipS = new IpS(ipName, findById(ServerId));
         ipS.setCreatedAt(new Date());
         ipSRepository.save(ipS);
     }

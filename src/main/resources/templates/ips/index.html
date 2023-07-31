@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add IPs</title>
+</head>
+<body>
+<div th:each="ip : ${ipSs}">
+    <a th:href="@{/ipS/{id}(id=${ip.getId()})}"><p th:text="${ip.getName()}"</p></a>
+</div>
+
+
+<!--<div th:each="product : ${products}">-->
+<!--    <div th:if="${product.getBuyer() == null}">-->
+<!--        <div>-->
+<!--            <img th:src="@{/imagesByProduct/{id}.0.png(id=${product.getId()})}" width="140" height="140">-->
+<!--        </div>-->
+<!--        <a th:href="@{/product/{id}(id=${product.getId()})}"><p th:text="${product.getTitle()}"</p></a>-->
+<!--        <p th:text="${product.getPrice() + ', ' + product.getShort_description()}">product</p>-->
+<!--        <br/>-->
+<!--    </div>-->
+<!--</div>-->
+
+</body>
+</html>
