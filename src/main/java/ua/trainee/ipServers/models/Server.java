@@ -2,6 +2,7 @@ package ua.trainee.ipServers.models;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -19,6 +20,14 @@ public class Server {
     @OneToMany(mappedBy = "server")
     private List <IpS> ipSList;
 
+    public Server() {
+    }
+
+    public Server(String name) {
+        this.name = name;
+        ipSList = new ArrayList<>();
+    }
+
     public String getName() {
         return name;
     }
@@ -33,13 +42,6 @@ public class Server {
 
     public void setIpSList(List<IpS> ipSList) {
         this.ipSList = ipSList;
-    }
-
-    public Server() {
-    }
-
-    public Server(String name) {
-        this.name = name;
     }
 
 

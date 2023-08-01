@@ -20,7 +20,7 @@ public class IpS {
     private Date createdAt;
 
     @ManyToOne
-    @JoinColumn(name = "server_id", referencedColumnName = "id")
+    @JoinColumn(name = "server_id", referencedColumnName = "id", nullable = false,unique = true)
     private Server server;
 
 

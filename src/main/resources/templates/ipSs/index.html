@@ -5,11 +5,15 @@
     <title>Add IPs</title>
 </head>
 <body>
-<div th:each="ip : ${ipSs}">
-    <a th:href="@{/ipS/{id}(id=${ip.getId()})}"><p th:text="${ip.getName()}"</p></a>
+<div th:each="ipS : ${ipSs}">
+    <a th:href="@{/ipSs/{id}(id=${ipS.getId()})}"><p th:text="${ipS.getName()}"</p></a>
 </div>
 
+<br/>
 
+<form  th:method="GET" th:action="@{/servers}">
+    <input type="submit" value="Servers Page"/>
+</form>
 <!--<div th:each="product : ${products}">-->
 <!--    <div th:if="${product.getBuyer() == null}">-->
 <!--        <div>-->

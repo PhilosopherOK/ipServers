@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Server</title>
+</head>
+<body>
+
+<p th:text="${server.getId()}">Id</p>
+<p th:text="${server.getName()}">Name</p>
+
+<br/>
+
+<div th:each="ipS : ${server.getIpSList()}">
+  <a th:href="@{/ipSs/{id}(id=${ipS.getId()})}"><p th:text="${ipS.getName()}"</p></a>
+  <p th:text="${ipS.getCreatedAt()}">ipS time</p>
+
+    <form th:method="DELETE" th:action="@{/ipSs/{id}(id=${ipS.getId()})}">
+        <input type="submit" value="Delete IP"/>
+    </form>
+    <br/>
+</div>
+
+<br/>
+
+<form th:method="POST" th:action="@{/servers/addIp/{idServer}(idServer=${server.getId()})}" th:object="${ipS}">
+    <label for="name">Enter ip name: </label>
+    <input type="text" th:field="*{name}" id="name"/>
+    <br/>
+    <input type="submit" value="add IP"/>
+</form>
+
+<br/>
+
+<form  th:method="GET" th:action="@{/servers}">
+  <input type="submit" value="Servers Page"/>
+</form>
+
+<br/>
+
+<form th:method="DELETE" th:action="@{/servers/{id}(id=${server.getId()})}">
+    <input type="submit" value="Delete server"/>
+</form>
+
+</body>
+</html>

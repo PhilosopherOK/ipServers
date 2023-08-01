@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create server</title>
+</head>
+<body>
+
+<form th:method="POST" th:action="@{/servers/createServer}" th:object="${server}">
+    <label for="name">Enter server name: </label>
+    <input type="text" th:field="*{name}" id="name"/>
+<!--    <div style="color:red" th:if="${#fields.hasErrors('first_name')}" th:errors="*{first_name}">first_name Error</div>-->
+    <br/>
+    <input type="submit" value="Sign UP!"/>
+</form>
+
+</body>
+</html>

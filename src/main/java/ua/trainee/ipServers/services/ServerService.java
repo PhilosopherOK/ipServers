@@ -33,6 +33,13 @@ public class ServerService {
         return serverRepository.findByNameStartingWith(startingWith);
     }
 
+    public void create(Server server){
+        serverRepository.save(server);
+    }
+    public void deleteById(Long id){
+        serverRepository.deleteById(id);
+    }
+
     public void addIp(long ServerId, String ipName) {
         List<IpS> IpList = ipSRepository.findAll();
         for(IpS ip:IpList){

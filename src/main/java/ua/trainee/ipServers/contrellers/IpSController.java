@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import ua.trainee.ipServers.services.IpSService;
 
 @Controller
-@RequestMapping("/ipS")
+@RequestMapping("/ipSs")
 public class IpSController {
     private final IpSService ipSService;
 
@@ -22,18 +22,18 @@ public class IpSController {
     @GetMapping
     public String ipIndex(Model model){
         model.addAttribute("ipSs", ipSService.index());
-        return "ips/index";
+        return "ipSs/index";
     }
 
     @GetMapping("/{id}")
     public String ipShow(@PathVariable ("id") Long id, Model model){
     model.addAttribute("ipS", ipSService.findById(id));
-    return "ips/show";
+    return "ipSs/show";
     }
 
     @DeleteMapping("/{id}")
     public String ipDelete(@PathVariable("id")Long id){
         ipSService.delete(id);
-        return "redirect:/ips/index";
+        return "redirect:/servers";
     }
 }
