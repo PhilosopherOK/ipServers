@@ -20,7 +20,7 @@ public class IpS {
     private Date createdAt;
 
     @ManyToOne
-    @JoinColumn(name = "server_id", referencedColumnName = "id", nullable = false,unique = true)
+    @JoinColumn(name = "server_id", referencedColumnName = "id", nullable = false)
     private Server server;
 
 
@@ -62,5 +62,15 @@ public class IpS {
 
     public void setCreatedAt(Date createdAt) {
         this.createdAt = createdAt;
+    }
+
+    @Override
+    public String toString() {
+        return "IpS{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", createdAt=" + createdAt +
+                ", server=" + server +
+                '}';
     }
 }

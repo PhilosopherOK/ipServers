@@ -9,4 +9,5 @@ import java.util.List;
 @Repository
 public interface ServerRepository extends JpaRepository<Server, Long> {
     List<Server> findByNameStartingWith(String startingWith);
+    Server findByName(String name);
 }

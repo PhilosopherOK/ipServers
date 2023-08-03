@@ -20,5 +20,17 @@
 <form  th:method="GET" th:action="@{/ipSs}">
     <input type="submit" value="ipS Page"/>
 </form>
+
+<br/>
+
+<form  th:method="POST" th:action="@{/copyPaste/copy}">
+    <input type="submit" value="Copy txt to data"/>
+</form>
+
+<br/>
+
+<form  th:method="POST" th:action="@{/copyPaste/paste}">
+    <input type="submit" value="Paste data to txt"/>
+</form>
 </body>
 </html>

@@ -14,7 +14,7 @@ public class Server {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "name", nullable = false)
+    @Column(name = "name", nullable = false, unique = true)
     private String name;
 
     @OneToMany(mappedBy = "server")
@@ -51,5 +51,14 @@ public class Server {
 
     public Long getId() {
         return id;
+    }
+
+    @Override
+    public String toString() {
+        return "Server{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", ipSList=" + ipSList +
+                '}';
     }
 }
